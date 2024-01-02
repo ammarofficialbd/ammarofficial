@@ -85,18 +85,54 @@ $('.testimonials-container').owlCarousel({
     }
 })
 
-const text = document.querySelector('.second-text');
+    // JavaScript for text typing and reversing animation with color object
+    const textElement = document.getElementById('text');
+    const texts = [
+      { text: "Web Designer.", color: "#4ECC50" },
+      { text: "Web Developer.", color: "#047d88" },
+      { text: "App Developer.", color: "#751878" }
+    ];
 
-const textAnimate = () =>{
-   setTimeout(() => {
-	 text.textContent = "Web Designer"
-   }, 0);
-   setTimeout(() => {
-	text.textContent = "Web Developer"
-  }, 4000);
-  setTimeout(() => {
-	text.textContent = "App Developer"
-  }, 8000);
-}
+    let currentIndex = 0;
 
-textAnimate();
+    function typeAndReverse(index) {
+      const { text, color } = texts[currentIndex];
+
+      textElement.textContent = text.slice(0, index);
+      textElement.style.color = color;
+
+      if (index < text.length) {
+        setTimeout(() => {
+          typeAndReverse(index + 1);
+        }, 100); // Adjust the typing speed (milliseconds)
+      } else {
+        // Reverse the animation after typing
+        setTimeout(() => {
+          reverseText(text.length - 1);
+        }, 800); // Adjust the delay before reversing (milliseconds)
+      }
+    }
+
+    function reverseText(index) {
+      const { text, color } = texts[currentIndex];
+
+      textElement.textContent = text.slice(0, index);
+      textElement.style.color = color;
+
+      if (index > 0) {
+        setTimeout(() => {
+          reverseText(index - 1);
+        }, 100); // Adjust the reversing speed (milliseconds)
+      } else {
+        // Move to the next text in the array
+        currentIndex = (currentIndex + 1) % texts.length;
+
+        // Start typing the next text
+        setTimeout(() => {
+          typeAndReverse(0);
+        }, 800); // Adjust the delay before typing the next text (milliseconds)
+      }
+    }
+
+    // Start the typing and reversing animation with the first text
+    typeAndReverse(0);
