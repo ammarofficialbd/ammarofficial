@@ -404,6 +404,9 @@ button.contact-btn{
 	letter-spacing: 1px;
 }
 .about-desc a{
+    padding: 12px;
+    background: var(--primary-clr);
+    display: block;
 	border-radius: 25px;
 	margin-top: 25px;
 }
