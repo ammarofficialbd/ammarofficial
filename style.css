@@ -30,7 +30,9 @@ html{
 	--text-clr: #723f77;
 	--secondary-heading: #78277b;
 }
-
+a{
+  text-decoration: none;	
+}
 /*   *** Reusable Code Starts ***   */
 button.btn{
 	background-color: var(--primary-clr);
@@ -401,7 +403,7 @@ button.contact-btn{
 	color: var(--text-clr);
 	letter-spacing: 1px;
 }
-.about-desc .download-btn{
+.about-desc .download-btn a{
 	border-radius: 25px;
 	margin-top: 25px;
 }
