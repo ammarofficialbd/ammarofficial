@@ -403,7 +403,7 @@ button.contact-btn{
 	color: var(--text-clr);
 	letter-spacing: 1px;
 }
-.about-desc .download-btn a{
+.about-desc a{
 	border-radius: 25px;
 	margin-top: 25px;
 }
